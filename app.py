@@ -18,6 +18,10 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 CORS(app)
 
+@app.route('/', methods=['GET'])
+def home():
+    return 'Flask API is running'
+
 @app.route('/chat', methods=['POST'])
 def chat():
     user_input = request.json.get('message')
